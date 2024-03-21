@@ -5,7 +5,7 @@ using System.IO;
 
 public class RunTrial : MonoBehaviour
 {
-    public float chance = 1;
+    public float chance;
     public int trials = 5;
     public GameObject leftPos;
     public GameObject rightPos;
@@ -25,7 +25,7 @@ public class RunTrial : MonoBehaviour
         initialTrials = trials;
         outcomes = new float[initialReps];
 
-        for (int i = 0; i < (repetitions*1000); i++)
+        for (int i = 0; i < (repetitions); i++)
         {
             while (trials > 0)
             {
@@ -60,17 +60,12 @@ public class RunTrial : MonoBehaviour
 
         if (!File.Exists(docName))
         {
-            File.WriteAllText(docName, "VALUES POG \n\n");
+            File.WriteAllText(docName, "Values: \n\n");
         }
         
         for(int i = 0; i < initialReps; i++)
         {
             File.AppendAllText(docName, outcomes[i].ToString() + ",");
         }
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
